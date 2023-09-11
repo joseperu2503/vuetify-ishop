@@ -6,5 +6,4 @@ export interface Product {
   stock: number;
   images: string[];
   updated_at: string;
-  brand: string;
 }

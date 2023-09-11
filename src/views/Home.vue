@@ -2,7 +2,7 @@
   <v-container>
     <v-layout>
       <v-app-bar :elevation="2" color="primary" density="compact">
-        <v-app-bar-title>Tech shop</v-app-bar-title>
+        <v-app-bar-title>iShop</v-app-bar-title>
         <template v-slot:append>
           <v-btn variant="outlined">Login</v-btn>
         </template>
@@ -15,7 +15,6 @@
               <v-card>
                 <v-img contain height="250" :src="product.images[0]"></v-img>
                 <v-card-item>
-                  <span>{{product.brand}}</span>
                   <v-card-title @click="goProduct(product.id)">{{product.name}}</v-card-title>
                   <v-card-title class="mt-4">${{product.price}}</v-card-title>
                 </v-card-item>

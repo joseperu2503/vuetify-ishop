@@ -2,7 +2,7 @@
   <v-container>
     <v-layout>
       <v-app-bar :elevation="2" color="primary" density="compact">
-        <v-app-bar-title>Tech shop</v-app-bar-title>
+        <v-app-bar-title>iShop</v-app-bar-title>
         <template v-slot:append>
           <v-btn variant="outlined">Login</v-btn>
         </template>
@@ -17,19 +17,40 @@
               </v-carousel>
             </v-col>
             <v-col>
-              <div>{{ product?.brand }}</div>
               <div class="text-h6">
                 {{ product?.name }}
               </div>
-              <div class="text-h6">
+              <div class="text-h5 text-primary">
                 ${{ product?.price }}
               </div>
-              <v-btn variant="tonal" color="primary" prepend-icon="mdi-cart" class="mt-2">
+              <div class="mt-5">
+                <div>Choose your delivery method</div>
+
+                <v-btn-toggle v-model="deliveryMethod" rounded="lg" color="primary" group border="sm">
+                  <v-btn :value="1" prepend-icon="md:local_shipping">
+                    Shipping
+                  </v-btn>
+                  <v-btn :value="2" prepend-icon="mdi-store-outline">
+                    Store pickup
+                  </v-btn>
+                </v-btn-toggle>
+
+              </div>
+              <v-btn variant="flat" color="grey-darken-4" size="large" prepend-icon="mdi-cart" class="mt-6">
                 Add to cart
               </v-btn>
-              <v-btn class="mt-2" color="primary">
-                Buy
-              </v-btn>
+              <v-card class="mt-4" border="sm" variant="outlined">
+                <v-card-item>
+                  <div><v-icon icon="mdi-store-outline" color="primary" class="me-2" />Pick up in store in 2 business
+                    hours</div>
+                  <div><v-icon icon="md:schedule_send" color="primary" class="me-2" />Shipping in 24 hours*</div>
+                  <div><v-icon icon="md:local_shipping" color="primary" class="me-2" />Free shipping from S/ 399.00
+                  </div>
+                  <div><v-icon icon="md:payments" color="primary" class="me-2" />Pay it in 12 interest-free installments
+                  </div>
+                </v-card-item>
+
+              </v-card>
             </v-col>
           </v-row>
           <v-row>
@@ -126,6 +147,7 @@ const Specifications = ref([
     description: '8.47 ounces',
   }
 ])
+const deliveryMethod = ref(1)
 </script>
 
 <style scoped>
