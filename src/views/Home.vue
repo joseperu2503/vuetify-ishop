@@ -11,9 +11,9 @@
           <v-btn variant="tonal" color="primary" prepend-icon="mdi-cart" class="mt-2">
             Add to cart
           </v-btn>
-          <v-btn class="mt-2">
+          <!-- <v-btn class="mt-2">
             Buy
-          </v-btn>
+          </v-btn> -->
         </v-card-actions>
       </v-card>
     </v-col>
