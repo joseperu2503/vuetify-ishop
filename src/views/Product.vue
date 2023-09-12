@@ -1,78 +1,63 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-app-bar :elevation="2" color="primary" density="compact">
-        <v-app-bar-title>iShop</v-app-bar-title>
-        <template v-slot:append>
-          <v-btn variant="outlined">Login</v-btn>
-        </template>
-      </v-app-bar>
-      <v-main class="mt-8">
-        <v-container class="main-container">
-          <v-row>
-            <v-col>
-              <v-carousel hide-delimiters height="300" class="mt-4 mb-4">
-                <v-carousel-item v-for="(image, index) in product?.images" :key="index" :src="image"
-                  contain></v-carousel-item>
-              </v-carousel>
-            </v-col>
-            <v-col>
-              <div class="text-h6">
-                {{ product?.name }}
-              </div>
-              <div class="text-h5 text-primary">
-                ${{ product?.price }}
-              </div>
-              <div class="mt-5">
-                <div>Choose your delivery method</div>
+  <v-row>
+    <v-col>
+      <v-carousel hide-delimiters height="300" class="mt-4 mb-4">
+        <v-carousel-item v-for="(image, index) in product?.images" :key="index" :src="image" contain></v-carousel-item>
+      </v-carousel>
+    </v-col>
+    <v-col>
+      <div class="text-h6">
+        {{ product?.name }}
+      </div>
+      <div class="text-h5 text-primary">
+        ${{ product?.price }}
+      </div>
+      <div class="mt-5">
+        <div>Choose your delivery method</div>
 
-                <v-btn-toggle v-model="deliveryMethod" rounded="lg" color="primary" group border="sm">
-                  <v-btn :value="1" prepend-icon="md:local_shipping">
-                    Shipping
-                  </v-btn>
-                  <v-btn :value="2" prepend-icon="mdi-store-outline">
-                    Store pickup
-                  </v-btn>
-                </v-btn-toggle>
+        <v-btn-toggle v-model="deliveryMethod" rounded="lg" color="primary" group border="sm">
+          <v-btn :value="1" prepend-icon="md:local_shipping">
+            Shipping
+          </v-btn>
+          <v-btn :value="2" prepend-icon="mdi-store-outline">
+            Store pickup
+          </v-btn>
+        </v-btn-toggle>
 
-              </div>
-              <v-btn variant="flat" color="grey-darken-4" size="large" prepend-icon="mdi-cart" class="mt-6">
-                Add to cart
-              </v-btn>
-              <v-card class="mt-4" border="sm" variant="outlined">
-                <v-card-item>
-                  <div><v-icon icon="mdi-store-outline" color="primary" class="me-2" />Pick up in store in 2 business
-                    hours</div>
-                  <div><v-icon icon="md:schedule_send" color="primary" class="me-2" />Shipping in 24 hours*</div>
-                  <div><v-icon icon="md:local_shipping" color="primary" class="me-2" />Free shipping from S/ 399.00
-                  </div>
-                  <div><v-icon icon="md:payments" color="primary" class="me-2" />Pay it in 12 interest-free installments
-                  </div>
-                </v-card-item>
+      </div>
+      <v-btn variant="flat" color="grey-darken-4" size="large" prepend-icon="mdi-cart" class="mt-6">
+        Add to cart
+      </v-btn>
+      <v-card class="mt-4" border="sm" variant="outlined">
+        <v-card-item>
+          <div><v-icon icon="mdi-store-outline" color="primary" class="me-2" />Pick up in store in 2 business
+            hours</div>
+          <div><v-icon icon="md:schedule_send" color="primary" class="me-2" />Shipping in 24 hours*</div>
+          <div><v-icon icon="md:local_shipping" color="primary" class="me-2" />Free shipping from S/ 399.00
+          </div>
+          <div><v-icon icon="md:payments" color="primary" class="me-2" />Pay it in 12 interest-free installments
+          </div>
+        </v-card-item>
 
-              </v-card>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <v-card title="Specifications">
-                <v-card-item>
-                  <v-table density="compact">
-                    <tbody>
-                      <tr v-for="item in Specifications" :key="item.label">
-                        <td>{{ item.label }}</td>
-                        <td>{{ item.description }}</td>
-                      </tr>
-                    </tbody>
-                  </v-table>
-                </v-card-item>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-main>
-    </v-layout>
-  </v-container>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row>
+    <v-col>
+      <v-card title="Specifications">
+        <v-card-item>
+          <v-table density="compact">
+            <tbody>
+              <tr v-for="item in Specifications" :key="item.label">
+                <td>{{ item.label }}</td>
+                <td>{{ item.description }}</td>
+              </tr>
+            </tbody>
+          </v-table>
+        </v-card-item>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup lang="ts">
@@ -149,9 +134,3 @@ const Specifications = ref([
 ])
 const deliveryMethod = ref(1)
 </script>
-
-<style scoped>
-.main-container {
-  max-width: 1200px;
-}
-</style>
