@@ -19,10 +19,7 @@
 
             <v-card min-width="300">
               <v-list v-for="(product, index) in cart" :key="index">
-                <v-list-item
-                  :title="product.name"
-                  :subtitle="`Quantity: ${2}`"
-                >
+                <v-list-item :title="product.name" :subtitle="`Quantity: ${2}`">
                   <template v-slot:prepend>
                     <v-img :src="product.images[0]" height="100" width="100"></v-img>
                   </template>
@@ -35,11 +32,12 @@
 
               <v-card-item>
                 <v-divider></v-divider>
-                <div class="font-weight-medium text-h6 text-center text-grey-darken-3 mt-2">Subtotal<span class="text-primary font-weight-medium ms-2 ">$2,099.00</span></div>
-                <v-btn variant="flat" color="grey-darken-4" size="large" class="mt-4" block>
+                <div class="font-weight-medium text-h6 text-center text-grey-darken-3 mt-2">Subtotal<span
+                    class="text-primary font-weight-medium ms-2 ">$2,099.00</span></div>
+                <v-btn variant="flat" color="grey-darken-4" size="large" class="mt-4" block @click="goCart">
                   Edit cart
                 </v-btn>
-                <v-btn variant="outlined" color="grey-darken-2" size="large" class="mt-3" block>
+                <v-btn variant="outlined" color="grey-darken-2" size="large" class="mt-3" block @click="buyNow">
                   Buy Now
                 </v-btn>
               </v-card-item>
@@ -58,14 +56,31 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useCartStore } from '@/stores/cart';
 import { storeToRefs } from 'pinia';
+import { useRouter, useRoute } from 'vue-router';
 
 const cartStore = useCartStore()
 const { cart } = storeToRefs(cartStore);
 
 const showCart = ref(false)
+
+
+const router = useRouter();
+const route = useRoute();
+
+const buyNow = () => {
+  router.push('/shipping')
+}
+
+const goCart = () => {
+  router.push('/cart')
+}
+
+watch(route, () => {
+  showCart.value = false
+})
 
 </script>
 

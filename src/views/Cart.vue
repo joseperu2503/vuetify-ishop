@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h5 font-weight-bold text-grey-darken-3">My Cart</div>
+  <div class="text-h4 font-weight-bold text-grey-darken-3">My Cart</div>
   <v-row class="mt-8">
     <v-col cols="8">
       <v-table>
@@ -65,7 +65,7 @@
           <div class="mt-8">Promo code</div>
           <v-text-field variant="outlined" density="compact" placeholder="X1452S" max-width="100"></v-text-field>
 
-          <v-btn variant="flat" color="grey-darken-4" size="large" class="mt-4" block>
+          <v-btn variant="flat" color="grey-darken-4" size="large" class="mt-4" block @click="buyNow">
             Continue
           </v-btn>
 
@@ -79,9 +79,15 @@
 <script setup lang="ts">
 import { useCartStore } from '@/stores/cart';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 
 const cartStore = useCartStore()
 const { cart } = storeToRefs(cartStore);
+const router = useRouter();
+
+const buyNow = () => {
+  router.push('/shipping')
+}
 </script>
 
 <style scoped></style>

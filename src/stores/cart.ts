@@ -7,6 +7,6 @@ export const useCartStore = defineStore("appbar", () => {
 
   const products = ref<Product[]>(productsData)
 
-  const cart = ref<Product[]>(products.value.slice(0, 6))
+  const cart = ref<Product[]>(products.value.slice(0, 3))
   return { cart };
 });

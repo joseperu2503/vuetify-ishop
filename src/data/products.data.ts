@@ -231,3 +231,66 @@ export const productsData: Product[] = [
     ]
   },
 ]
+
+export const specificationsData = [
+  {
+    label: 'Battery Description',
+    description: 'Built-in rechargeable lithium‑ion battery',
+  },
+  {
+    label: 'Frontal camera',
+    description: '12 MP',
+  },
+  {
+    label: 'Dual SIM',
+    description: 'No',
+  },
+  {
+    label: 'Main Camera',
+    description: '12 + 12 MP',
+  },
+  {
+    label: 'RAM',
+    description: '4 GB',
+  },
+  {
+    label: 'Screen Size',
+    description: '6.1"',
+  },
+  {
+    label: 'Operating System',
+    description: 'Apple iOS 16',
+  },
+  {
+    label: 'Internal Memory',
+    description: '128 Gb',
+  },
+  {
+    label: 'Product Name',
+    description: 'iPhone 14 Pro Max 128GB',
+  },
+  {
+    label: 'Brand',
+    description: 'Apple',
+  },
+  {
+    label: 'Color',
+    description: 'Deep Purple',
+  },
+  {
+    label: 'Height',
+    description: '6.33 inches',
+  },
+  {
+    label: 'Width',
+    description: '3.05 inches',
+  },
+  {
+    label: 'Depth',
+    description: '0.31 inches',
+  },
+  {
+    label: 'Weight',
+    description: '8.47 ounces',
+  }
+]
