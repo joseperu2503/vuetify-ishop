@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-layout>
+  <v-container class="h-screen">
+    <v-layout class="h-100">
       <v-app-bar :elevation="2" color="primary">
         <v-app-bar-title>
           <v-icon icon="md:apple"></v-icon>
@@ -21,7 +21,7 @@
               <v-list v-for="(product, index) in cart" :key="index">
                 <v-list-item
                   :title="product.name"
-                  :subtitle="`Cantidad: ${2}`"
+                  :subtitle="`Quantity: ${2}`"
                 >
                   <template v-slot:prepend>
                     <v-img :src="product.images[0]" height="100" width="100"></v-img>
@@ -49,7 +49,7 @@
         </template>
       </v-app-bar>
       <v-main class="mt-8">
-        <v-container class="main-container">
+        <v-container class="main-container h-100">
           <router-view></router-view>
         </v-container>
       </v-main>

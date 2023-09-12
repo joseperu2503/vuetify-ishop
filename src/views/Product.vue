@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-carousel hide-delimiters height="300" class="mt-4 mb-4">
+      <v-carousel hide-delimiters height="300" class="mt-4 mb-4" cycle interval="3000">
         <v-carousel-item v-for="(image, index) in product?.images" :key="index" :src="image" contain></v-carousel-item>
       </v-carousel>
     </v-col>
