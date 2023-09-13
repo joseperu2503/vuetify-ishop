@@ -1,5 +1,5 @@
 <template>
-  <v-container class="h-screen">
+  <v-container class="h-screen" fluid>
     <v-layout class="h-100">
       <v-app-bar :elevation="2" color="primary">
         <v-app-bar-title>
@@ -7,8 +7,6 @@
           iShop
         </v-app-bar-title>
         <template v-slot:append>
-
-
           <v-menu v-model="showCart" :close-on-content-click="false" location="bottom">
             <template v-slot:activator="{ props }">
               <v-badge content="9" color="grey-darken-4" offset-x="10" offset-y="10" class="me-4" v-bind="props">
@@ -46,10 +44,10 @@
           <v-btn variant="outlined">Login</v-btn>
         </template>
       </v-app-bar>
-      <v-main class="mt-8">
-        <v-container class="main-container h-100">
+      <v-main>
+        <!-- <v-container class="h-100" fluid> -->
           <router-view></router-view>
-        </v-container>
+        <!-- </v-container> -->
       </v-main>
     </v-layout>
   </v-container>
@@ -83,9 +81,3 @@ watch(route, () => {
 })
 
 </script>
-
-<style scoped>
-.main-container {
-  max-width: 1200px;
-}
-</style>

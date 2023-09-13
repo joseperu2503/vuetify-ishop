@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SFPRODISPLAYREGULAR.OTF");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SFPRODISPLAYBOLD.OTF");
+  font-weight: 700;
+}
+
+* {
+  font-family: "SF Pro Display";
+}
+
+html {
+  overflow-y: auto;
+}
+
+.page-container {
+  max-width: 1200px !important;
+}
