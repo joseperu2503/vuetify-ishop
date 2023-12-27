@@ -26,7 +26,8 @@
           </v-btn-toggle>
 
         </div>
-        <v-btn variant="flat" color="grey-darken-4" size="large" prepend-icon="mdi-cart" class="mt-6">
+        <v-btn variant="flat" color="grey-darken-4" size="large" prepend-icon="mdi-cart" class="mt-6"
+          @click="addProductToCart">
           Add to cart
         </v-btn>
         <v-card class="mt-4" border="sm" variant="outlined">
@@ -67,6 +68,7 @@ import { ref } from 'vue';
 import { Product } from '@/interfaces/product.interface'
 import { useRoute } from 'vue-router';
 import { productsData, specificationsData } from '@/data/products.data'
+import { useCartStore } from '@/stores/cart';
 
 const route = useRoute();
 const productId = route.params.productId
@@ -75,4 +77,12 @@ const product = ref<Product | undefined>(products.value.find(p => p.id.toString(
 
 const specifications = ref(specificationsData)
 const deliveryMethod = ref(1)
+
+const cartStore = useCartStore()
+
+const addProductToCart = () => {
+  if (!product.value) return;
+  cartStore.addProductToCart(product.value);
+}
+
 </script>

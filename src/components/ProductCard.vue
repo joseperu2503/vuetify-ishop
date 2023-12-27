@@ -1,9 +1,9 @@
 <template>
   <v-card>
-    <v-img contain height="250" :src="product.images[0]"></v-img>
+    <v-img contain height="250" :src="product.images[0]" @click="goProduct(product.id)" class="product-image"></v-img>
     <v-card-item>
-      <v-card-title @click="goProduct(product.id)">{{ product.name }}</v-card-title>
-      <v-card-title class="mt-4">${{ product.price }}</v-card-title>
+      <v-card-title @click="goProduct(product.id)" class="product-name">{{ product.name }}</v-card-title>
+      <v-card-title>${{ product.price }}</v-card-title>
     </v-card-item>
     <v-card-actions>
       <v-btn variant="tonal" color="primary" prepend-icon="mdi-cart" class="mt-2" @click="addProductToCart(product)">
@@ -35,4 +35,12 @@ const { addProductToCart } = useCartStore()
 
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.product-image {
+  cursor: pointer;
+}
+
+.product-name {
+  cursor: pointer;
+}
+</style>
