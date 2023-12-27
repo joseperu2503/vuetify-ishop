@@ -41,15 +41,15 @@
       <v-col class="d-flex align-center h-100">
         <v-container class="d-flex flex-column h-100">
           <div style="flex:1; overflow-y:auto">
-            <v-list v-for="(product, index) in cart" :key="index">
+            <v-list v-for="(productCart, index) in cart" :key="index">
               <v-list-item class="my-4">
                 <template v-slot:prepend>
-                  <v-img :src="product.images[0]" height="120" width="120"></v-img>
+                  <v-img :src="productCart.product.images[0]" height="120" width="120"></v-img>
                 </template>
-                <div class="text-h6 ">{{ product.name }}</div>
+                <div class="text-h6 ">{{ productCart.product.name }}</div>
                 <div class="mt-3">Code MHVDSD52F</div>
                 <div class="">Quantity: 2</div>
-                <span class="font-weight-medium text-primary text-h6 mt-2">${{ product.price }}</span>
+                <span class="font-weight-medium text-primary text-h6 mt-2">${{ productCart.product.price }}</span>
               </v-list-item>
             </v-list>
           </div>
