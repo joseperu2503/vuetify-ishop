@@ -14,18 +14,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="product in cart" :key="product.id">
+            <tr v-for="productCart in cart" :key="productCart.product.id">
               <td>
                 <div class="d-flex align-center my-6">
-                  <v-img :src="product.images[0]" :height="100" :width="100" inline></v-img>
-                  {{ product.name }}
+                  <v-img :src="productCart.product.images[0]" :height="100" :width="100" inline></v-img>
+                  {{ productCart.product.name }}
 
                 </div>
               </td>
-              <td>${{ product.price }}</td>
+              <td>${{ productCart.product.price }}</td>
               <td><v-text-field variant="outlined" density="compact" value="1" class="mt-6"></v-text-field></td>
               <td>
-                ${{ product.price }}
+                ${{ productCart.product.price }}
               </td>
               <td> <v-btn icon="md:delete" variant="text" color="grey-darken-1"></v-btn>
               </td>
