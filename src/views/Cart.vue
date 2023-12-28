@@ -22,7 +22,9 @@
 
                 </div>
               </td>
-              <td>${{ productCart.product.price }}</td>
+              <td>
+                <span>${{ productCart.product.price }}</span>
+              </td>
               <td>
                 <div class="d-flex align-center">
                   <v-btn density="compact" icon="mdi-minus" @click="decreaseQuantity(index)"></v-btn>
@@ -33,7 +35,9 @@
                 </div>
               </td>
               <td>
-                ${{ productCart.product.price }}
+                <span class="text-primary">
+                  ${{ productCart.product.price * productCart.quantity }}
+                </span>
               </td>
               <td>
                 <v-btn icon="md:delete" variant="text" color="grey-darken-1"
@@ -50,23 +54,23 @@
               <span>Order total</span>
               <span class="text-primary">$2,300.00</span>
             </div>
-            <div class="d-flex justify-space-between mt-2">
+            <div class="d-flex justify-space-between mt-4">
               <span>Shipping</span>
               <span class="text-primary">$19.00</span>
             </div>
-            <div class="d-flex justify-space-between mt-2">
+            <div class="d-flex justify-space-between mt-4">
               <span>Salex tax</span>
               <span class="text-primary">$5.00</span>
             </div>
-            <v-divider class=" mt-2"></v-divider>
-            <div class="d-flex justify-space-between mt-2">
+            <v-divider class=" mt-4"></v-divider>
+            <div class="d-flex justify-space-between mt-4">
               <span class="font-weight-medium text-grey-darken-3">Subtotal</span>
-              <span class="text-primary ">$4,925.00</span>
+              <span class="text-secondary ">$4,925.00</span>
             </div>
             <div class="mt-8">Promo code</div>
-            <v-text-field variant="outlined" density="compact" placeholder="X1452S" max-width="100"></v-text-field>
+            <v-text-field variant="outlined" density="compact" placeholder="X1452S" max-width="100" class="mt-1"></v-text-field>
 
-            <v-btn variant="flat" color="grey-darken-4" size="large" class="mt-4" block @click="buyNow">
+            <v-btn variant="flat" color="primary" size="large" class="mt-4" block @click="buyNow">
               Continue
             </v-btn>
 

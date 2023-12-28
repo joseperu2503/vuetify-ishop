@@ -1,7 +1,7 @@
 <template>
   <v-menu v-model="showCart" :close-on-content-click="false" location="bottom">
     <template v-slot:activator="{ props }">
-      <v-badge :content="numProducts" color="grey-darken-4" offset-x="10" offset-y="10" class="me-4" v-bind="props">
+      <v-badge :content="numProducts" color="secondary" offset-x="10" offset-y="10" v-bind="props">
         <v-btn icon="md:shopping_cart">
         </v-btn>
       </v-badge>

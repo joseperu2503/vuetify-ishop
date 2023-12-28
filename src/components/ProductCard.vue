@@ -1,18 +1,11 @@
 <template>
-  <v-card>
-    <v-img contain height="250" :src="product.images[0]" @click="goProduct(product.id)" class="product-image"></v-img>
+  <v-card variant="flat">
+    <v-img cover max-height="250" height="250" :src="product.images[0]" @click="goProduct(product.id)"
+      class="product-image"></v-img>
     <v-card-item>
-      <v-card-title @click="goProduct(product.id)" class="product-name">{{ product.name }}</v-card-title>
-      <v-card-title>${{ product.price }}</v-card-title>
+      <div @click="goProduct(product.id)" class="product-name text-center">{{ product.name }}</div>
+      <div class="text-primary text-center">${{ product.price }}</div>
     </v-card-item>
-    <v-card-actions>
-      <v-btn variant="tonal" color="primary" prepend-icon="mdi-cart" class="mt-2" @click="addProductToCart(product)">
-        Add to cart
-      </v-btn>
-      <!-- <v-btn class="mt-2">
-        Buy
-      </v-btn> -->
-    </v-card-actions>
   </v-card>
 </template>
 
