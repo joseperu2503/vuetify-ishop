@@ -1,31 +1,38 @@
 <template>
   <v-card variant="flat">
-    <v-img cover max-height="250" height="250" :src="product.images[0]" @click="goProduct(product.id)"
-      class="product-image"></v-img>
+    <v-img
+      contain
+      max-height="200"
+      height="200"
+      :src="product.images[0]"
+      @click="goProduct(product.id)"
+      class="product-image"
+    ></v-img>
     <v-card-item>
-      <div @click="goProduct(product.id)" class="product-name text-center">{{ product.name }}</div>
+      <div @click="goProduct(product.id)" class="product-name text-center">
+        {{ product.name }}
+      </div>
       <div class="text-primary text-center">${{ product.price }}</div>
     </v-card-item>
   </v-card>
 </template>
 
 <script setup lang="ts">
-import { Product } from '@/interfaces/product.interface';
-import { useCartStore } from '@/stores/cart';
-import { useRouter } from 'vue-router';
+import { Product } from "@/interfaces/product.interface";
+import { useCartStore } from "@/stores/cart";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 
 const goProduct = (productId: number) => {
-  router.push(`/product/${productId}`)
-}
+  router.push(`/product/${productId}`);
+};
 
 const { product } = defineProps<{
-  product: Product
-}>()
+  product: Product;
+}>();
 
-const { addProductToCart } = useCartStore()
-
+const { addProductToCart } = useCartStore();
 </script>
 
 <style scoped lang="scss">
