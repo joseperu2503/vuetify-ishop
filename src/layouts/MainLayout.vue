@@ -10,6 +10,13 @@
           <span>iShop</span>
         </router-link>
       </template>
+      <div class="links">
+        <div class="link">Mac</div>
+        <div class="link">iPhone</div>
+        <div class="link">iPad</div>
+        <div class="link">iWatch</div>
+      </div>
+
       <template v-slot:append>
         <v-btn icon="md:search"></v-btn>
         <CartMenu />
@@ -28,9 +35,22 @@
 import CartMenu from "@/components/CartMenu.vue";
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .logo {
   cursor: pointer;
   text-decoration: none;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    color: #fb9119;
+  }
 }
 </style>
