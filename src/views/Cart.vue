@@ -14,34 +14,57 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(productCart, index) in cart" :key="productCart.product.id">
+            <tr
+              v-for="(productCart, index) in cart"
+              :key="productCart.product.id"
+            >
               <td>
                 <div class="d-flex align-center my-6">
-                  <v-img :src="productCart.product.images[0]" :height="100" :width="100" inline></v-img>
+                  <v-img
+                    :src="productCart.product.images[0]"
+                    :height="100"
+                    :width="100"
+                    inline
+                  ></v-img>
                   {{ productCart.product.name }}
-
                 </div>
               </td>
               <td>
-                <span>${{ productCart.product.price }}</span>
+                <span>${{ formatPrice(productCart.product.price) }}</span>
               </td>
               <td>
                 <div class="d-flex align-center">
-                  <v-btn density="compact" icon="mdi-minus" @click="decreaseQuantity(index)"></v-btn>
+                  <v-btn
+                    density="compact"
+                    icon="mdi-minus"
+                    @click="decreaseQuantity(index)"
+                  ></v-btn>
                   <div class="text-body-1 font-weight-medium mx-4">
                     {{ productCart.quantity }}
                   </div>
-                  <v-btn density="compact" icon="mdi-plus" @click="addQuantity(index)"></v-btn>
+                  <v-btn
+                    density="compact"
+                    icon="mdi-plus"
+                    @click="addQuantity(index)"
+                  ></v-btn>
                 </div>
               </td>
               <td>
                 <span class="text-primary">
-                  ${{ productCart.product.price * productCart.quantity }}
+                  ${{
+                    formatPrice(
+                      productCart.product.price * productCart.quantity
+                    )
+                  }}
                 </span>
               </td>
               <td>
-                <v-btn icon="md:delete" variant="text" color="grey-darken-1"
-                  @click="cartStore.deleteProductToCart(productCart.product.id)"></v-btn>
+                <v-btn
+                  icon="md:delete"
+                  variant="text"
+                  color="grey-darken-1"
+                  @click="cartStore.deleteProductToCart(productCart.product.id)"
+                ></v-btn>
               </td>
             </tr>
           </tbody>
@@ -62,20 +85,33 @@
               <span>Salex tax</span>
               <span class="text-primary">$5.00</span>
             </div>
-            <v-divider class=" mt-4"></v-divider>
+            <v-divider class="mt-4"></v-divider>
             <div class="d-flex justify-space-between mt-4">
-              <span class="font-weight-medium text-grey-darken-3">Subtotal</span>
-              <span class="text-secondary ">$4,925.00</span>
+              <span class="font-weight-medium text-grey-darken-3"
+                >Subtotal</span
+              >
+              <span class="text-secondary">$4,925.00</span>
             </div>
             <div class="mt-8">Promo code</div>
-            <v-text-field variant="outlined" density="compact" placeholder="X1452S" max-width="100" class="mt-1"></v-text-field>
+            <v-text-field
+              variant="outlined"
+              density="compact"
+              placeholder="X1452S"
+              max-width="100"
+              class="mt-1"
+            ></v-text-field>
 
-            <v-btn variant="flat" color="primary" size="large" class="mt-4" block @click="buyNow">
+            <v-btn
+              variant="flat"
+              color="primary"
+              size="large"
+              class="mt-4"
+              block
+              @click="buyNow"
+            >
               Continue
             </v-btn>
-
           </v-card-item>
-
         </v-card>
       </v-col>
     </v-row>
@@ -83,28 +119,27 @@
 </template>
 
 <script setup lang="ts">
-import { useCartStore } from '@/stores/cart';
-import { storeToRefs } from 'pinia';
-import { useRouter } from 'vue-router';
+import { useCartStore } from "@/stores/cart";
+import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
+import { formatPrice } from "@/helpers/helpers";
 
-const cartStore = useCartStore()
+const cartStore = useCartStore();
 const { cart } = storeToRefs(cartStore);
 const router = useRouter();
 
 const buyNow = () => {
-  router.push('/shipping')
-}
+  router.push("/shipping");
+};
 
 const addQuantity = (index: number) => {
-  cart.value[index].quantity++
-}
+  cart.value[index].quantity++;
+};
 
 const decreaseQuantity = (index: number) => {
   if (cart.value[index].quantity == 1) return;
-  cart.value[index].quantity--
-}
-
-
+  cart.value[index].quantity--;
+};
 </script>
 
 <style scoped></style>

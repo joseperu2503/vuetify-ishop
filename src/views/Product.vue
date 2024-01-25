@@ -23,7 +23,9 @@
         <div class="text-h5 font-weight-medium">
           {{ product?.name }}
         </div>
-        <div class="text-h5 text-secondary">${{ product?.price }}</div>
+        <div class="text-h5 text-secondary">
+          ${{ formatPrice(product?.price) }}
+        </div>
         <div class="mt-8">
           <div class="text-body-1">Choose your delivery method</div>
 
@@ -76,7 +78,7 @@
                 color="secondary500"
                 class="me-2"
               />
-              Free shipping from S/ 399.00
+              Free shipping from $ 399.00
             </div>
             <div class="mt-2 text-grey-darken-2">
               <v-icon icon="md:payments" color="secondary500" class="me-2" />
@@ -143,6 +145,7 @@ import { productsData, specificationsData } from "@/data/products.data";
 import { useCartStore } from "@/stores/cart";
 import { useDisplay } from "vuetify";
 import ProductCard from "@/components/ProductCard.vue";
+import { formatPrice } from "@/helpers/helpers";
 
 const { xs } = useDisplay();
 

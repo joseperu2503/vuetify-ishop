@@ -12,7 +12,9 @@
       <div @click="goProduct(product.id)" class="product-name text-center">
         {{ product.name }}
       </div>
-      <div class="text-primary text-center">${{ product.price }}</div>
+      <div class="text-primary text-center">
+        ${{ formatPrice(product.price) }}
+      </div>
     </v-card-item>
   </v-card>
 </template>
@@ -21,6 +23,7 @@
 import { Product } from "@/interfaces/product.interface";
 import { useCartStore } from "@/stores/cart";
 import { useRouter } from "vue-router";
+import { formatPrice } from "@/helpers/helpers";
 
 const router = useRouter();
 
